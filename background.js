@@ -2,6 +2,58 @@ let timer = 0;
 let isRunning = false;
 let isRestMode = false;
 
+const startPhrases = [
+    "You’ve got this!",
+    "Make it happen!",
+    "Push yourself, you’re closer than you think.",
+    "Every step counts.",
+    "Stay focused, stay positive!",
+    "Make today count!",
+    "Success begins with action!",
+    "You are your only limit.",
+    "Progress, not perfection!",
+    "The best time to start is now.",
+    "Take the first step, the rest will follow.",
+    "Go the extra mile!",
+    "Don’t wait for opportunity, create it.",
+    "Take action, make it happen!"
+];
+const endPhrases = [
+    "Success in motion!",
+    "You’re leveling up!",
+    "One step closer!",
+    "You’re on your way!",
+    "Momentum is building!",
+    "Progress feels good!",
+    "Steps become strides!",
+    "Keep the pace up!",
+    "Closer than ever!",
+    "This is progress!"
+];
+const breakPhrases = [
+    "Pause, then push past it.",
+    "Take a breather!",
+    "Pause, breathe, reset!",
+    "Get ready for one more.",
+    "Take five and refocus."
+];
+const breakEndPhrases = [
+    "Action starts now!",
+    "Pick up the pace!",
+    "Momentum starts here!",
+    "All in, let’s go!",
+    "Make it happen now!",
+    "Keep the energy up!",
+    "Let’s hit the next level!"
+];
+
+const startText = startPhrases[Math.floor(Math.random() * startPhrases.length)];
+const endText = endPhrases[Math.floor(Math.random() * endPhrases.length)];
+const breakText = breakPhrases[Math.floor(Math.random() * breakPhrases.length)];
+const breakEndText = breakEndPhrases[Math.floor(Math.random() * breakEndPhrases.length)];
+
+
+
 chrome.alarms.create("pomodoroTimer", {
     periodInMinutes: 1 / 60,
 });
@@ -26,7 +78,6 @@ chrome.runtime.onInstalled.addListener(() => {
     });
 });
 
-// Listen for context menu item clicks
 chrome.contextMenus.onClicked.addListener((info, tab) => {
     if (info.menuItemId === "focusTimer") {
         startPomodoroTimer();
@@ -42,12 +93,12 @@ function startPomodoroTimer() {
 
     chrome.notifications.create({
         type: "basic",
-        iconUrl: "./img/poke-ball.png",
-        title: "Pomodoro Started",
-        message: "Your Pomodoro session has started!",
+        iconUrl: "./img/uncomplete-128.png",
+        title: "",
+        message: startText,
     });
 
-    timer();
+    countdownPomodoroTimer();
 }
 
 function startRestTimer() {
@@ -57,15 +108,15 @@ function startRestTimer() {
 
     chrome.notifications.create({
         type: "basic",
-        iconUrl: "./img/poke-ball.png",
-        title: "Rest Period",
-        message: "It's time to take a rest!",
+        iconUrl: "./img/uncomplete-128.png",
+        title: "",
+        message: breakText,
     });
 
-    timer();
+    countdownPomodoroTimer();
 }
 
-function timer() {
+function countdownPomodoroTimer() {
     chrome.alarms.onAlarm.addListener((alarm) => {
         if (alarm.name === "pomodoroTimer" && isRunning) {
             if (timer > 0) {
@@ -79,27 +130,19 @@ function timer() {
                 if (isRestMode) {
                     chrome.notifications.create({
                         type: "basic",
-                        iconUrl: "./img/poke-ball.png", // Update with your icon
-                        title: "Rest Time Over",
-                        message: "Your rest period is over! Time to get back to work!",
+                        iconUrl: "./img/uncomplete-128.png", // Update with your icon
+                        title: "",
+                        message: breakEndText,
                     });
                 } else {
                     chrome.notifications.create({
                         type: "basic",
-                        iconUrl: "./img/poke-ball.png", // Update with your icon
-                        title: "Pomodoro Complete",
-                        message: "Your Pomodoro session is complete! Time to take a break!",
+                        iconUrl: "./img/uncomplete-128.png", // Update with your icon
+                        title: "",
+                        message: endText,
                     });
                 }
             }
         }
     });
 }
-
-self.addEventListener('install', (event) => {
-    console.log('Service Worker Installed');
-  });
-  
-  self.addEventListener('activate', (event) => {
-    console.log('Service Worker Activated');
-  });
