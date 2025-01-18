@@ -1,0 +1,22 @@
+{
+    "manifest_version": 3,
+    "name": "Deep Pomo",
+    "version": "1.0",
+    "background": {
+          "service_worker": "background.js"
+        },
+    "description": "Helps you focus with a simple and effective pomodoro timer!",
+    "icons": {
+     "16": "./img/uncomplete-16.png",
+     "48": "./img/uncomplete-48.png",
+     "128": "./img/uncomplete-128.png"
+   },
+   "action": {
+     "default_popup": "popup/popup.html",
+     "default_title": "Deep Pomo",
+     "default_icon": "./img/uncomplete-128.png"
+   },
+   "permissions": ["storage", "alarms", "contextMenus", "notifications"]
+ 
+ }
+ 
