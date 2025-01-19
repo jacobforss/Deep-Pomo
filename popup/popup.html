@@ -7,34 +7,49 @@
     <link rel="stylesheet" href="popup.css" />
   </head>
   <body>
-    <div class="container">
-      <h1>Deep Pomo</h1>
-      <p id="timer-display">00:00</p>
+    <div>
+      <img src="/img/time-128.png" alt="" id="logo" />
+      <!-- <h1>Deep Pomo</h1> -->
+      <div id="container">
+        <p id="timer-display">25:00</p>
+        <div id="start-buttons">
+          <button id="start-focus">Start Focus Timer</button>
+          <button id="start-rest">Start Rest Timer</button>
+        </div>
 
-      <div id="start-buttons">
-        <button id="start-focus">Start Timer</button>
-        <button id="start-rest">Start Rest Timer</button>
+        <div id="running-buttons" class="hidden">
+          <button id="pause">Pause</button>
+          <button id="reset">Reset</button>
+        </div>
+
+        <div id="paused-buttons" class="hidden">
+          <button id="resume">Resume</button>
+          <!-- <button id="reset">Reset</button> -->
+        </div>
       </div>
+    </div>
 
-      <div id="running-buttons" class="hidden">
-        <button id="pause">Pause</button>
-        <button id="reset">Reset</button>
+    <div id="settings" style="display: none">
+      <div id="settingswrapper">
+        <div id="setting-option">
+          <label for="focus-time">Focus Time:</label>
+          <input type="number" id="focus-time" min="1" value="25" />
+        </div>
+        <div id="setting-option">
+          <label for="rest-time">Rest Time:</label>
+          <input type="number" id="rest-time" min="1" value="5" />
+        </div>
       </div>
-
-      <div id="paused-buttons" class="hidden">
-        <button id="resume">Resume</button>
-        <!-- <button id="reset">Reset</button> -->
-      </div>
-
-      <div class="settings">
-        <label for="focus-time">Focus Time (minutes):</label>
-        <input type="number" id="focus-time" min="1" value="10" />
-
-        <label for="rest-time">Rest Time (minutes):</label>
-        <input type="number" id="rest-time" min="1" value="5" />
-
-        <button id="save-settings">Save</button>
-      </div>
+      <button id="save-settings">Save</button>
+    </div>
+    <div id="footr">
+      <p>
+        Built with 🥐 and ☕️ by
+        <a href="https://jacobs-fresh-site-178fb4.webflow.io/" target="_blank"
+          >Jacob Forss</a
+        >
+      </p>
+      <button id="settings-btn">Settings</button>
     </div>
     <script src="popup.js"></script>
   </body>

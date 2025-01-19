@@ -67,6 +67,12 @@ document.getElementById("save-settings").addEventListener("click", () => {
         focusTime: focusTimeInput.value,
         restTime: restTimeInput.value
     });
+    const settings = document.getElementById("settings");
+    const container = document.getElementById("container"); 
+    const settingsBtn = document.getElementById("settings-btn");
+    settings.style.display = "none";
+    container.style.display = "flex";
+    settingsBtn.style.display = "flex";
 });
 
 chrome.storage.local.get(["focusTime", "restTime"], (data) => {
@@ -79,3 +85,12 @@ setInterval(fetchTimerState, 1000);
 
 // Fetch initial state
 fetchTimerState();
+
+document.getElementById("settings-btn").addEventListener("click", () => {
+    const settings = document.getElementById("settings");
+    const container = document.getElementById("container"); 
+    const settingsBtn = document.getElementById("settings-btn");
+    settings.style.display = "flex";
+    container.style.display = "none";
+    settingsBtn.style.display = "none";
+});

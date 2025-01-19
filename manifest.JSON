@@ -7,14 +7,14 @@
         },
     "description": "Helps you focus with a simple and effective pomodoro timer!",
     "icons": {
-     "16": "./img/uncomplete-16.png",
-     "48": "./img/uncomplete-48.png",
-     "128": "./img/uncomplete-128.png"
+     "16": "./img/time-16.png",
+     "48": "./img/time-48.png",
+     "128": "./img/time-128.png"
    },
    "action": {
      "default_popup": "popup/popup.html",
      "default_title": "Deep Pomo",
-     "default_icon": "./img/uncomplete-128.png"
+     "default_icon": "./img/time-128.png"
    },
    "permissions": ["storage", "alarms", "contextMenus", "notifications"]
  
