@@ -41,13 +41,14 @@ body {
     background-color: var(--white);
     color: #333;
     text-align: center;
-    width: 400px;
-    height: 220px;
+    width: 220px;
+    height: auto;
     font-size: 14px;
     display: flex; 
     flex-direction: column;
     justify-content: space-between;
 }
+
 
 #container {
     width: 100%;
@@ -59,7 +60,7 @@ body {
 
 #logo {
     width: 44px;
-    margin-top: 12px;
+    margin-top: 20px;
 }
 h1 {
     font-size: 16px;
@@ -68,10 +69,9 @@ h1 {
 
 #timer-display {
     font-family: 'digital';
-    color: var(--textgrey);
-    letter-spacing: -1px;
-    font-size: 60px;
-    margin: 12px;
+    font-size: 28px;
+    margin-top: 40px;
+    margin-bottom: 12px;
 }
 
 button {
@@ -86,6 +86,7 @@ button {
     text-align: center;
     box-sizing: border-box;
     font-size: 15px;
+    margin: 2px;
 }
 
 button:hover {
@@ -96,8 +97,17 @@ button:active {
     transform: scale(0.97);
 }
 
+.start-buttons {
+    display: flex; 
+
+    flex-direction: column;
+
+}
+
 #settings-btn {
     all: unset;
+    margin-top: 4px;
+    text-align: center;
     cursor: pointer;
   }
   #settings-btn:hover {
@@ -149,6 +159,7 @@ input[type="number"] {
     width: 100%;
     display: flex; 
     flex-direction: row;
-    justify-content: space-between;
-    align-items: end;
+    justify-content: center;
+    text-align: center;
+    margin-top: 40px;
 }

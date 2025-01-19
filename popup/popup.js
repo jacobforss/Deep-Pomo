@@ -89,8 +89,6 @@ fetchTimerState();
 document.getElementById("settings-btn").addEventListener("click", () => {
     const settings = document.getElementById("settings");
     const container = document.getElementById("container"); 
-    const settingsBtn = document.getElementById("settings-btn");
     settings.style.display = "flex";
     container.style.display = "none";
-    settingsBtn.style.display = "none";
 });

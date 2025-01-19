@@ -2,34 +2,34 @@
 // let isRunning = false;
 // let isRestMode = false;
 
-// const startPhrases = [
-//     "You’ve got this!",
-//     "Make it happen!",
-//     "Push yourself, you’re closer than you think.",
-//     "Every step counts.",
-//     "Stay focused, stay positive!",
-//     "Make today count!",
-//     "Success begins with action!",
-//     "You are your only limit.",
-//     "Progress, not perfection!",
-//     "The best time to start is now.",
-//     "Take the first step, the rest will follow.",
-//     "Go the extra mile!",
-//     "Don’t wait for opportunity, create it.",
-//     "Take action, make it happen!"
-// ];
-// const endPhrases = [
-//     "Success in motion!",
-//     "You’re leveling up!",
-//     "One step closer!",
-//     "You’re on your way!",
-//     "Momentum is building!",
-//     "Progress feels good!",
-//     "Steps become strides!",
-//     "Keep the pace up!",
-//     "Closer than ever!",
-//     "This is progress!"
-// ];
+const startPhrases = [
+    "You’ve got this!",
+    "Make it happen!",
+    "Push yourself, you’re closer than you think.",
+    "Every step counts.",
+    "Stay focused, stay positive!",
+    "Make today count!",
+    "Success begins with action!",
+    "You are your only limit.",
+    "Progress, not perfection!",
+    "The best time to start is now.",
+    "Take the first step, the rest will follow.",
+    "Go the extra mile!",
+    "Don’t wait for opportunity, create it.",
+    "Take action, make it happen!"
+];
+const endPhrases = [
+    "Success in motion!",
+    "You’re leveling up!",
+    "One step closer!",
+    "You’re on your way!",
+    "Momentum is building!",
+    "Progress feels good!",
+    "Steps become strides!",
+    "Keep the pace up!",
+    "Closer than ever!",
+    "This is progress!"
+];
 // const breakPhrases = [
 //     "Pause, then push past it.",
 //     "Take a breather!",
@@ -37,15 +37,15 @@
 //     "Get ready for one more.",
 //     "Take five and refocus."
 // ];
-// const breakEndPhrases = [
-//     "Action starts now!",
-//     "Pick up the pace!",
-//     "Momentum starts here!",
-//     "All in, let’s go!",
-//     "Make it happen now!",
-//     "Keep the energy up!",
-//     "Let’s hit the next level!"
-// ];
+const breakEndPhrases = [
+    "Action starts now!",
+    "Pick up the pace!",
+    "Momentum starts here!",
+    "All in, let’s go!",
+    "Make it happen now!",
+    "Keep the energy up!",
+    "Let’s hit the next level!"
+];
 
 // const startText = startPhrases[Math.floor(Math.random() * startPhrases.length)];
 // const endText = endPhrases[Math.floor(Math.random() * endPhrases.length)];
@@ -219,8 +219,8 @@ function resumePomodoroTimer() {
 function notifyCompletion() {
     chrome.notifications.create({
         type: "basic",
-        iconUrl: "./img/uncomplete-128.png",
-        title: "Timer Complete",
+        iconUrl: "./img/poke-ball-128.png",
+        title: "",
         message: isRestMode ? "Break is over, back to work!" : "Focus session complete!"
     });
 }
